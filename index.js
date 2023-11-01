@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
 
 import productsRoute from "./routes/products.js"
+import userRoute from "./routes/user.js"
 
 // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
@@ -35,6 +36,7 @@ app.use(cookieParser())
 app.use(express.json());
 
 app.use("/api/products", productsRoute);
+app.use("/api/v1/", userRoute);
 
 app.use((err, req, res, next) => {
     // return res.status(500).json("Hello from error handler")
